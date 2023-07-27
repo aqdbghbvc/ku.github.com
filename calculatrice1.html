@@ -1,0 +1,186 @@
+<html>
+
+<head>
+  <title>Calculatrice de lycée</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    #calculator {
+      width: 360px;
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin: 0 auto;
+    }
+
+    button {
+      width: 60px;
+      height: 60px;
+      font-size: 18px;
+    }
+
+    #display {
+      width: 90%;
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    #result {
+      margin-top: 10px;
+      font-size: 24px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="calculator">
+
+    <h1>Calculatrice de lycée</h1>
+    <input type="text" id="display" disabled>
+    <br>
+    <button onclick="appendToDisplay('1')">1</button>
+    <button onclick="appendToDisplay('2')">2</button>
+    <button onclick="appendToDisplay('3')">3</button>
+    <button onclick="appendToDisplay('+')">+</button>
+    <button onclick="appendToDisplay('-')">-</button>
+    <br>
+    <button onclick="appendToDisplay('4')">4</button>
+    <button onclick="appendToDisplay('5')">5</button>
+    <button onclick="appendToDisplay('6')">6</button>
+    <button onclick="appendToDisplay('*')">*</button>
+    <button onclick="appendToDisplay('/')">/</button>
+    <br>
+    <button onclick="appendToDisplay('7')">7</button>
+    <button onclick="appendToDisplay('8')">8</button>
+    <button onclick="appendToDisplay('9')">9</button>
+    <button onclick="appendToDisplay('0')">0</button>
+    <button onclick="appendToDisplay('.')">.</button>
+    <br>
+    <button onclick="clearDisplay()">C</button>
+    <button onclick="backspace()">⌫</button>
+    <button onclick="calculate()">=</button>
+    <button onclick="appendToDisplay('**')">^</button>
+    <button onclick="appendToDisplay('%')">%</button>
+    <br>
+    <button onclick="calculateFactorial()">!</button>
+    <button onclick="calculateSin()">sin</button>
+    <button onclick="calculateCos()">cos</button>
+    <button onclick="calculateTan()">tan</button>
+    <br>
+    <button onclick="calculateLog()">log</button>
+    <button onclick="calculateLn()">ln</button>
+    <br>
+    <div id="result"></div>
+  </div>
+
+  <script>
+    function appendToDisplay(value) {
+      document.getElementById('display').value += value;
+    }
+
+    function clearDisplay() {
+      document.getElementById('display').value = '';
+      document.getElementById('result').innerText = '';
+    }
+
+    function backspace() {
+      let currentExpression = document.getElementById('display').value;
+      document.getElementById('display').value = currentExpression.slice(0, -1);
+    }
+
+    function calculate() {
+      try {
+        let result = eval(document.getElementById('display').value);
+        document.getElementById('result').innerText = "= " + result;
+      } catch (error) {
+        document.getElementById('result').innerText = "Erreur";
+      }
+    }
+
+    function calculateFactorial() {
+      try {
+        let value = eval(document.getElementById('display').value);
+        if (Number.isInteger(value) && value >= 0) {
+          let result = 1;
+          for (let i = 1; i <= value; i++) {
+            result *= i;
+          }
+          document.getElementById('result').innerText = "= " + result;
+        } else {
+          document.getElementById('result').innerText = "Erreur : la factorielle n'est définie que pour les entiers positifs.";
+        }
+      } catch (error) {
+        document.getElementById('result').innerText = "Erreur";
+      }
+    }
+
+    function calculateSin() {
+      try {
+        let result = Math.sin(eval(document.getElementById('display').value));
+        document.getElementById('result').innerText = "= " + result;
+      } catch (error) {
+        document.getElementById('result').innerText = "Erreur";
+      }
+    }
+
+    function calculateCos() {
+      try {
+        let result = Math.cos(eval(document.getElementById('display').value));
+        document.getElementById('result').innerText = "= " + result;
+      } catch (error) {
+        document.getElementById('result').innerText = "Erreur";
+      }
+    }
+
+    function calculateTan() {
+      try {
+        let result = Math.tan(eval(document.getElementById('display').value));
+        document.getElementById('result').innerText = "= " + result;
+      } catch (error) {
+        document.getElementById('result').innerText = "Erreur";
+      }
+    }
+
+    function calculateLog() {
+      try {
+        let result = Math.log10(eval(document.getElementById('display').value));
+        document.getElementById('result').innerText = "= " + result;
+      } catch (error) {
+        document.getElementById('result').innerText = "Erreur";
+      }
+    }
+
+    function calculateLn() {
+      try {
+        let result = Math.log(eval(document.getElementById('display').value));
+        document.getElementById('result').innerText = "= " + result;
+      } catch (error) {
+        document.getElementById('result').innerText = "Erreur";
+      }
+    }
+  </script>
+  <!DOCTYPE html>
+  <html>
+
+  <head>
+    <title>Calculatrice de lycée en ligne - Résolvez vos problèmes mathématiques avec facilité</title>
+  </head>
+
+  <body>
+    <header>
+      <h1>Calculatrice de lycée en ligne</h1>
+    </header>
+
+    <p style="font-size: 14px;">Découvrez notre calculatrice en ligne gratuite, conçue pour les lycéens en quête de performances mathématiques exceptionnelles. Simplifiez vos équations, effectuez des calculs avancés et explorez les fonctions trigonométriques avec facilité. Notre calculatrice intuitive et conviviale est l'outil idéal pour améliorer vos compétences mathématiques et réussir brillamment vos cours de lycée. Simplifiez vos études et relevez de nouveaux défis mathématiques dès aujourd'hui avec notre calculatrice en ligne dédiée aux lycéens.</p>
+
+    <!-- Le reste du contenu de la page ici -->
+
+  </body>
+
+  </html>
+
+</body>
+
+</html>
